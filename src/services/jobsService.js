@@ -2,7 +2,7 @@ const BASE_URL =
   "https://botfilter-h5ddh6dye8exb7ha.centralus-01.azurewebsites.net";
 
 export const getJobs = async () => {
-  try {
+    try {
     const response = await fetch(`${BASE_URL}/api/jobs/get-list`);
 
     if (!response.ok) {
@@ -27,8 +27,11 @@ export const applyToJob = async (applicationData) => {
     });
 
     if (!response.ok) {
-      const errorData = await response.json().catch(() => ({}));
-      throw new Error(errorData.message || "Failed to submit application.");
+      const errorText = await response.text();
+      console.error("API Error Details:", errorText); 
+      throw new Error(
+        "Failed to submit application. Please check console for details.",
+      );
     }
 
     return await response.json();
