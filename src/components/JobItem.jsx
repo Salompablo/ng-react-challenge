@@ -5,6 +5,7 @@ import styles from "./JobItem.module.css";
 const CANDIDATE_PROFILE = {
   uuid: "047e9d14-907b-4373-9bb6-bfe6a900d8f8",
   candidateId: "74077925005",
+  applicationId: "77742411005",
   firstName: "Pablo",
   lastName: "Salom Pita",
 };
@@ -25,6 +26,7 @@ const JobItem = ({ job }) => {
       uuid: CANDIDATE_PROFILE.uuid,
       jobId: job.id,
       candidateId: CANDIDATE_PROFILE.candidateId,
+      applicationId: CANDIDATE_PROFILE.applicationId,
       repoUrl: repoUrl,
     };
 
